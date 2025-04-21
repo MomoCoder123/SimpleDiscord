@@ -2,6 +2,7 @@
 Make sure dicord.js, nodemon are installed well. As discord.js is the core module, and nodemon is very beneficial for developing.
 
 Example code:
+```
 const SimpleDiscord = require("SimpleDiscord.js")
 
 // Initialize the bot and set configuration
@@ -54,3 +55,4 @@ chooseCommand.execute = async interaction => {
 // Set commands and launch the bot
 SimpleDiscord.setCommands([greetCommand, chooseCommand])
 SimpleDiscord.launchBot()
+```
