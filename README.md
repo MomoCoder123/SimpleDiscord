@@ -3,7 +3,7 @@ Make sure dicord.js, nodemon are installed well. As discord.js is the core modul
 
 Example code:
 ```node.js
-const SimpleDiscord = require("SimpleDiscord.js")
+const SimpleDiscord = require("@yaley/simplediscord")
 
 // Initialize the bot and set configuration
 SimpleDiscord.config({
