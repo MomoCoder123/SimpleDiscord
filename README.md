@@ -38,11 +38,118 @@ Go into the **package.json**, above "dependencies", insert this into your json-p
 
 <h2> 3. configuration </h2>
 Configuration requires your bot token, clientID and guildID.
-Bot token is 
-clientID is the ID of your bot.
+<br>Bot token:
+
+![picture](https://i.ibb.co/q3j2bJ2k/IMG-0054.jpg)
+
+
+<br>clientID is the ID of your bot.
 
 
 ![picture](https://i.ibb.co/GQ3nVDNb/IMG-0053.jpg)
+
+<br>guildID is the serverID of the server which you've added the bot into.
+
+```node.js
+const SimpleDiscord = require("@yaley/simplediscord") //init the package
+
+//Init your bot token, clientID & guildID
+SimpleDiscord.config({
+  token: "your-bot-token",
+  clientId: "your-client-id",
+  guildId: "your-guild-id"
+})
+
+SimpleDiscord.launchBot()
+```
+
+Can you see your bot is online now? 
+<br> If yes, then congrats! 
+<br> If no, that means your bot token is wrong!
+
+<h2> 4. Advanced bot building</h2>
+<h3>Slash commands</h3>
+
+
+```node.js
+SimpleDiscord.createCommand()
+```
+
+creates a slash command, meaning users can send a command by typing `/`
+<br>In every command, you need a name, a description, and an option. There are three types of options, user options, string options, and choices (used in string options). If you dont need any options or choices, just leave it `[]`. 
+
+<br>the `required` attribute indicated that whether the user must type/ choose something in that input. Just leave it `[]` it's not required.
+
+Example:
+
+```node.js
+const greetCommand = SimpleDiscord.createCommand({
+  name: "greet",
+  description: "Greets a user",
+  userOptions: [
+    {
+      name: "user",
+      description: "The user to greet",
+      required: true
+    }
+  ]
+})
+```
+
+
+```node.js
+const chooseCommand = SimpleDiscord.createCommand({
+  name: "choose",
+  description: "Choose between options",
+  stringOptions: [
+    {
+      name: "choice",
+      description: "Your choice",
+      required: true,
+      choices: [
+        { name: "Option 1", value: "option1" },
+        { name: "Option 2", value: "option2" }
+      ]
+    }
+  ]
+})
+
+
+```
+
+**Note: no description/ requirement/ name is needed for choices!**
+
+<br>We need command handling. We will set `myCommand.excute` into a `async half-function` that proccesses what will the bot do after receiving slash commands.
+
+```node.js
+greetCommand.execute = async interaction => { // half-function, NO NEED TO WRIE FUNCTION(){}
+  const user = interaction.options.getUser("user") //gets the value of 'user'
+  await interaction.reply(`Hello, ${user.username}!`) 'wait until the bot has sent reply message, such that there will be no crashes
+}
+```
+
+**Note: `interaction.options.getUser("inputName").username` gives out the username of the input**
+**<br> `interaction.options.getuser("inputName").id` gives out the id.**
+To mention/tag someone, you can say "<@USER_id>" in `interaction.reply`.
+
+```node.js
+greetCommand.execute = async interaction => { 
+  const user = interaction.options.getUser("user")
+  await interaction.reply(`Hello, <@${user.id}>!`) //tags the user
+}
+```
+
++Additional knowledge: f-string in js 
+
+```node.js
+const somone = "you"
+console.log(`Hello, ${someone}`)
+```
+
+**REMEMBER It IS ` NOT "**
+
+
+<h2>Additional</h2>
 
 Example code:
 ```node.js
