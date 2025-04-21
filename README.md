@@ -3,7 +3,7 @@ Make sure dicord.js, nodemon are installed well. As discord.js is the core modul
 
 tutorial:
 <h2>1. Discord bot API & Installation </h2>
-[discord developer portal](https://discord.com/developers/applications), create your own application.
+Goto discord developer portal (https://discord.com/developers/applications), create your own application.
 
 Select "bot" in the left navigation bar, and create a bot. 
 <br>Scroll down and **check "public bot", "presence intent", "server memebers intent" & "message content intent"**.
@@ -17,12 +17,32 @@ Scroll down to "default install settings", add **applications.commands** and **b
 <br/>Lastly, go to "OAuth2". In "OAuth2 URL Generator", check **"bot"**, **"application.commands"** and for permissions, check **adminstrator**.
 <br><p> $${\color{red}****PRESS \space \space SAVE \space \space CHANGES!****}$$</p>
 
-<h2>2. Package Installations </h2>
+<br> scroll to the bottom, copy the **generated OAuth2 URL** and authorise your bot! 
 
+<h2>2. Package Installations & Starting</h2>
+Goto Github codespace/ Visual Studio Code. 
+<br/>Open the terminal and run the following commands seperately
+
+```
+npm i @yaley/simplediscord discord.js
+npm i -D nodemon
+```
+
+Go into the **package.json**, above "dependencies", insert this into your json-package.
+``` json
+"scripts": {
+  "dev": "nodemon YOUR_FILE_NAME"
+}
+```
+****Remember to replace YOUR_FILE_NAME into your .js file name!!!****
 
 <h2> 3. configuration </h2>
 Configuration requires your bot token, clientID and guildID.
-clientID is  
+Bot token is 
+clientID is the ID of your bot.
+
+
+![picture](https://i.ibb.co/GQ3nVDNb/IMG-0053.jpg)
 
 Example code:
 ```node.js
