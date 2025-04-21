@@ -147,7 +147,12 @@ console.log(`Hello, ${someone}`)
 ```
 
 **REMEMBER It IS ` NOT "**
+Also, you need to add your command to the bot before lunching it!
 
+```node.js
+SimpleDiscord.setCommands([greetCommand, chooseCommand]) //store all commands in an array
+SimpleDiscord.launchBot() //now I launch it :)
+```
 
 <h2>Additional</h2>
 
