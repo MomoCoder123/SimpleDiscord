@@ -78,7 +78,7 @@ SimpleDiscord.createCommand()
 creates a slash command, meaning users can send a command by typing `/`
 <br>In every command, you need a name, a description, and an option. There are three types of options, user options, string options, and choices (used in string options). If you dont need any options or choices, just leave it `[]`. 
 
-<br>the `required` attribute indicated that whether the user must type/ choose something in that input. Just leave it `[]` it's not required.
+<br>the `required` attribute indicated that whether the user must type/ choose something in that input. Just leave it `[]` if it's not required.
 
 Example:
 
