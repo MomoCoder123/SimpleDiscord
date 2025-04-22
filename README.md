@@ -176,7 +176,7 @@ buttoncmd.excute = async interaction => {
   const button1 = SimpleDiscord.createButton({
     customId: "Button 1",
     label: "Button 1",
-    style: "primary"
+    style: "Primary" //there are many types of colour: Primary (blue), Secondary (Grey), Success (Green), Danger (Red), see discord.js button-building for more
   })
 
   const row = SimpleDiscord.createButtonRow([button1])
