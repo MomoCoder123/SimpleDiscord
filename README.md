@@ -191,8 +191,30 @@ With `SimpleDiscord.registerButtonHandler`, you can handle the proccesses affter
 
 ```node.js
 SimpleDiscord.registerButtonHandler("button1", async interaction => {
-  await interaction.reply({ content: "hi, I'm button 1!", emphemeral: true })
+  await interaction.reply({ content: "hi, I'm button 1!", ephemeral: true })
 })
+```
+
+<h2>JSON-wrapped text content</h2>
+Have you ever wondered why I used another quotation in this example?
+
+```node.js
+await interaction.reply({content : "1234", ephemeral: true}) //only the DEVICE who interacted with the bot can receieve the message, even for the same account but different devices, will resulting in not receiving ephemeral message!!!!
+```
+
+<br> Well, when we want to decorate our text content, giving it more information, such as the **ephemeral** boolean. Ephemeral means that the **ONLY device and account** can receive. Even for different devices, will result in NOT receiving the ephemeral message. Also, ephemeral message will be **auto-deleted** after a while, or when **you exit the discord.com / discord app**.
+
+<br>Note: Always remember to add "**content:**" in this JSON-wrapper, **ephemeral** is **optional**.
+
+<h2>Channel-Public Message Sending</h2>
+In  ```SimpleDiscord.sendmsg_toChannel(channelId, content)``` , you can find your channelID by clicking the channel in the category page (check https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID#h_01HRSTXPS5FMK2A5SMVSX4JW4E). 
+
+<br>Also, you can use **JSON_wrapped text content** in here too! For example:
+
+```node.js
+setTimeout(() => {
+  sendmsg_toChannel("my-channel-ID", {content: "You have travelled through 1 second!", ephemeral: true})
+}, 1000)
 ```
 
 <h2>Additional</h2>
