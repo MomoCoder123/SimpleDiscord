@@ -155,8 +155,17 @@ SimpleDiscord.launchBot() //now I launch it :)
 ```
 
 <h2>Button Handling</h2>
-To insert buttons in your bot messages, you need to `SimpleDiscord.Button({ customId: "myId", label: "myName", style:"primary"})` 
-<br> you can add more than one buttons, but it requires a button row. `simplediscord.createButtonRow([button1, button2, button3])`
+To insert buttons in your bot messages, you need to  
+
+``` node.js
+SimpleDiscord.Button({ customId: "myId", label: "myName", style:"primary"})
+```
+
+<br> you can add more than one buttons, but it requires a button row. 
+
+```node.js
+SimpleDiscord.createButtonRow([button1, button2, button3])
+```
 
 
 <br>Example:
@@ -170,7 +179,7 @@ buttoncmd.excute = async interaction => {
     style: "primary"
   })
 
-  const row = SimpleDiscord.createButtonrow([button1])
+  const row = SimpleDiscord.createButtonRow([button1])
   await interaction.reply({
     content: "Hi, I have a button now!!!!",
     components: [row] //adds the button
