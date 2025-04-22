@@ -158,7 +158,7 @@ SimpleDiscord.launchBot() //now I launch it :)
 To insert buttons in your bot messages, you need to  
 
 ``` node.js
-SimpleDiscord.Button({ customId: "myId", label: "myName", style:"primary"})
+SimpleDiscord.createButton({ customId: "myId", label: "myName", style:"primary"})
 ```
 
 <br> you can add more than one buttons, but it requires a button row. 
