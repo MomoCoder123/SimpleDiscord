@@ -31,7 +31,7 @@ npm i -D nodemon
 Go into the **package.json**, above "dependencies", insert this into your json-package.
 ``` json
 "scripts": {
-  "dev": "nodemon YOUR_FILE_NAME"
+  "dev": "nodemon YOUR_FILE_NAME.js"
 }
 ```
 ****Remember to replace YOUR_FILE_NAME into your .js file name!!!****
