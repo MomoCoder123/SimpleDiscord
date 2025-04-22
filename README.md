@@ -154,6 +154,38 @@ SimpleDiscord.setCommands([greetCommand, chooseCommand]) //store all commands in
 SimpleDiscord.launchBot() //now I launch it :)
 ```
 
+<h2>Button Handling</h2>
+To insert buttons in your bot messages, you need to `SimpleDiscord.Button({ customId: "myId", label: "myName", style:"primary"})` 
+<br> you can add more than one buttons, but it requires a button row. `simplediscord.createButtonRow([button1, button2, button3])`
+
+
+<br>Example:
+
+```node.js
+const buttoncmd = SimpleDiscord.createCommand({ name: "buttons", descript: "BUTTONSSSSS!"})
+buttoncmd.excute = async interaction => {
+  const button1 = SimpleDiscord.createButton({
+    customId: "Button 1",
+    label: "Button 1",
+    style: "primary"
+  })
+
+  const row = SimpleDiscord.createButtonrow([button1])
+  await interaction.reply({
+    content: "Hi, I have a button now!!!!",
+    components: [row] //adds the button
+  })
+}
+```
+
+With `SimpleDiscord.registerButtonHandler`, you can handle the proccesses affter the button has been clicked.
+
+```node.js
+SimpleDiscord.registerButtonHandler("button1", async interaction => {
+  await interaction.reply({ content: "hi, I'm button 1!", emphemeral: true })
+})
+```
+
 <h2>Additional</h2>
 
 Example code:
